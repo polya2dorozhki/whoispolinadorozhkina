@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian Language Teacher — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --teal:    #1D9E75;
+  --teal-dk: #0F6E56;
+  --teal-lt: #E1F5EE;
+  --gold:    #BA7517;
+  --gold-lt: #FAEEDA;
+  --ink:     #1a1a18;
+  --ink2:    #5F5E5A;
+  --ink3:    #B4B2A9;
+  --bg:      #FDFCF8;
+  --surface: #F4F2EC;
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --sans:    'Outfit', system-ui, sans-serif;
+  --radius:  6px;
+}
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg); border-bottom: 1px solid #E5E3DB;
+  padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 58px;
+}
+.nav-logo { font-family: var(--serif); font-size: 19px; color: var(--teal); letter-spacing: -0.3px; }
+.nav-school { font-size: 11px; color: var(--ink3); letter-spacing: 0.08em; text-transform: uppercase; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { text-decoration: none; font-size: 12px; font-weight: 500; color: var(--ink2); letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--teal); }
+
+/* HERO */
+.hero { display: grid; grid-template-columns: 1fr 340px; min-height: 500px; }
+.hero-text { padding: 5rem 3rem 4rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid #E5E3DB; }
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.5rem; }
+.hero-tag::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--teal); }
+h1 { font-family: var(--serif); font-size: clamp(40px, 5.5vw, 62px); line-height: 1.06; letter-spacing: -1px; margin-bottom: 1.5rem; font-weight: 600; }
+h1 em { font-style: italic; color: var(--teal); font-weight: 400; }
+.hero-desc { font-size: 16px; color: var(--ink2); max-width: 460px; margin-bottom: 2rem; line-height: 1.75; font-weight: 300; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+.badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 400; padding: 5px 12px; border-radius: 20px; border: 1px solid; }
+.badge-teal { background: var(--teal-lt); color: var(--teal-dk); border-color: #9FE1CB; }
+.badge-gold { background: var(--gold-lt); color: var(--gold); border-color: #FAC775; }
+.hero-cta { display: flex; gap: 1rem; align-items: center; }
+.btn-primary { background: var(--teal); color: white; border: none; padding: 11px 26px; font-family: var(--sans); font-size: 13px; font-weight: 500; border-radius: var(--radius); cursor: pointer; letter-spacing: 0.03em; transition: background 0.2s; text-decoration: none; display: inline-block; }
+.btn-primary:hover { background: var(--teal-dk); }
+.btn-ghost { background: none; color: var(--ink2); border: 1px solid #D3D1C7; padding: 11px 22px; font-family: var(--sans); font-size: 13px; font-weight: 500; border-radius: var(--radius); cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s; }
+.btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+
+.hero-visual { background: var(--teal); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2rem; position: relative; overflow: hidden; }
+.photo-frame { width: 180px; height: 180px; border-radius: 50%; border: 3px dashed rgba(255,255,255,0.5); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; padding: 1rem; }
+.photo-initials { font-family: var(--serif); font-size: 52px; font-weight: 600; line-height: 1; color: white; }
+.photo-hint { font-size: 11px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+.hero-visual-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); text-align: center; }
+.hero-bg-word { position: absolute; bottom: -30px; right: -15px; font-family: var(--serif); font-size: 160px; font-weight: 600; color: rgba(255,255,255,0.05); pointer-events: none; line-height: 1; }
+
+/* VIDEO */
+.video-section { padding: 0; background: var(--ink); }
+.video-inner { max-width: 100%; display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2.5rem 3rem; }
+.video-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.video-wrapper {
+  width: 100%; max-width: 640px;
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #000; aspect-ratio: 16/9;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.video-wrapper video { width: 100%; height: 100%; object-fit: cover; }
+/* ✏️ PLACEHOLDER shown when no video src is set */
+.video-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  background: #1a1a18;
+}
+.video-play-icon { width: 56px; height: 56px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; }
+.video-play-icon::after { content: ''; display: block; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 16px solid rgba(255,255,255,0.7); margin-left: 4px; }
+.video-ph-text { font-size: 13px; color: rgba(255,255,255,0.4); text-align: center; line-height: 1.5; }
+.video-caption { font-size: 12px; color: rgba(255,255,255,0.35); font-style: italic; }
+
+/* STATS */
+.stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); background: #111110; color: white; }
+.stat { padding: 1.5rem 2rem; border-right: 1px solid rgba(255,255,255,0.08); }
+.stat:last-child { border-right: none; }
+.stat-num { font-family: var(--serif); font-size: 34px; color: #9FE1CB; line-height: 1; margin-bottom: 3px; }
+.stat-lbl { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* SECTIONS */
+section { padding: 5rem 3rem; }
+.section-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.8rem; }
+.section-eyebrow::after { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--teal); }
+h2 { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 40px); letter-spacing: -0.5px; line-height: 1.15; margin-bottom: 0.4rem; font-weight: 600; }
+h2 em { font-style: italic; color: var(--teal); font-weight: 400; }
+
+/* WHY */
+.why-section { background: var(--teal); color: white; padding: 4rem 3rem; }
+.why-section .section-eyebrow { color: #9FE1CB; }
+.why-section .section-eyebrow::after { background: #9FE1CB; }
+.why-section h2 { color: white; }
+.why-section h2 em { color: #9FE1CB; }
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.why-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); padding: 1.5rem; }
+.why-icon { font-size: 22px; margin-bottom: 0.8rem; display: block; }
+.why-title { font-size: 15px; font-weight: 500; color: white; margin-bottom: 6px; }
+.why-desc { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; font-weight: 300; }
+
+/* EXPERTISE */
+.expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+.expertise-text p { font-size: 15px; color: var(--ink2); line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
+.expertise-text strong { color: var(--ink); font-weight: 500; }
+.skills-list { display: flex; flex-direction: column; gap: 1rem; }
+.skill-header { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.skill-name { font-size: 13px; font-weight: 500; }
+.skill-note { font-size: 12px; color: var(--ink3); }
+.skill-bar { height: 3px; background: #E5E3DB; border-radius: 2px; }
+.skill-fill { height: 100%; border-radius: 2px; background: var(--teal); }
+
+/* EVIDENCE-BASED SECTION */
+.evidence-section { background: var(--surface); }
+.evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+.evidence-text p { font-size: 15px; color: var(--ink2); line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
+.evidence-text strong { color: var(--ink); font-weight: 500; }
+.evidence-cards { display: flex; flex-direction: column; gap: 1rem; }
+.evidence-card { background: var(--bg); border: 1px solid #E5E3DB; border-radius: var(--radius); padding: 1.25rem 1.5rem; border-left: 3px solid var(--teal); }
+.evidence-card-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+.evidence-card-desc { font-size: 13px; color: var(--ink2); font-weight: 300; line-height: 1.55; }
+.evidence-card-year { font-size: 11px; color: var(--teal); font-weight: 500; margin-bottom: 4px; letter-spacing: 0.05em; }
+
+/* STORY */
+.story-section { background: var(--ink); color: white; padding: 5rem 3rem; }
+.story-section .section-eyebrow { color: #9FE1CB; }
+.story-section .section-eyebrow::after { background: #9FE1CB; }
+.story-section h2 { color: white; }
+.story-section h2 em { color: #9FE1CB; }
+.story-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+.story-pull { font-family: var(--serif); font-size: clamp(22px, 2.8vw, 34px); font-style: italic; color: #9FE1CB; line-height: 1.35; font-weight: 400; border-left: 3px solid var(--teal); padding-left: 1.5rem; }
+.story-text p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
+.story-text p:last-child { margin-bottom: 0; }
+.story-text strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+.story-signoff { margin-top: 1.5rem; padding: 1rem 1.25rem; background: rgba(29,158,117,0.15); border: 1px solid rgba(29,158,117,0.3); border-radius: var(--radius); font-size: 14px; font-style: italic; color: #9FE1CB; }
+
+/* EXPERIENCE */
+.exp-section { }
+.exp-layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+.timeline { display: flex; flex-direction: column; }
+.tl-item { display: grid; grid-template-columns: 14px 1fr; gap: 1rem; padding-bottom: 2rem; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-col { display: flex; flex-direction: column; align-items: center; }
+.tl-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 5px; }
+.tl-seg { width: 1px; flex: 1; background: #D3D1C7; margin-top: 4px; }
+.tl-item:last-child .tl-seg { display: none; }
+.tl-year { font-size: 11px; color: var(--teal); font-weight: 500; margin-bottom: 2px; letter-spacing: 0.04em; }
+.tl-role { font-size: 14px; font-weight: 500; margin-bottom: 1px; }
+.tl-org { font-size: 13px; color: var(--ink2); font-weight: 300; }
+.tl-detail { font-size: 12px; color: var(--ink3); margin-top: 3px; font-weight: 300; line-height: 1.5; }
+
+/* PHOTO PLACEHOLDERS */
+.photo-grid { display: flex; flex-direction: column; gap: 1rem; }
+.photo-placeholder {
+  width: 100%; aspect-ratio: 4/3;
+  background: var(--surface); border: 1.5px dashed #D3D1C7;
+  border-radius: var(--radius);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  padding: 1rem;
+}
+.photo-placeholder-icon { font-size: 24px; opacity: 0.35; }
+.photo-placeholder-hint { font-size: 11px; color: var(--ink3); text-align: center; line-height: 1.5; }
+.photo-caption {
+  font-size: 12px; color: var(--ink2); font-style: italic;
+  padding: 6px 10px; background: var(--surface);
+  border-radius: 0 0 var(--radius) var(--radius);
+  border: 1px solid #E5E3DB; border-top: none;
+  margin-top: -4px;
+}
+/*
+  ✏️ HOW TO ADD A REAL PHOTO:
+  Replace the entire <div class="photo-placeholder">...</div> + <div class="photo-caption">
+  with:
+  <figure style="margin:0;">
+    <img src="your-photo.jpg" style="width:100%;border-radius:6px 6px 0 0;object-fit:cover;aspect-ratio:4/3;display:block;">
+    <figcaption style="font-size:12px;color:var(--ink2);font-style:italic;padding:6px 10px;background:var(--surface);border:1px solid #E5E3DB;border-top:none;border-radius:0 0 6px 6px;">
+      Your caption here
+    </figcaption>
+  </figure>
+*/
+
+/* INTL CARD */
+.intl-card { background: var(--surface); border: 1px solid #E5E3DB; border-radius: var(--radius); padding: 2rem; }
+.intl-card-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+.country-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+.country-tag { font-size: 12px; padding: 4px 12px; border-radius: 20px; background: var(--teal-lt); color: var(--teal-dk); border: 1px solid #9FE1CB; }
+.intl-note { font-size: 13px; color: var(--ink2); line-height: 1.6; font-weight: 300; border-top: 1px solid #D3D1C7; padding-top: 1rem; }
+
+/* AWARDS */
+.awards-section { background: var(--surface); }
+.awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.award-card { display: flex; gap: 1rem; align-items: flex-start; background: var(--bg); border: 1px solid #E5E3DB; border-radius: var(--radius); padding: 1.25rem 1.5rem; transition: border-color 0.2s; }
+.award-card:hover { border-color: var(--teal); }
+.award-year { font-family: var(--serif); font-size: 20px; color: var(--gold); font-weight: 600; line-height: 1; flex-shrink: 0; min-width: 44px; }
+.award-name { font-size: 14px; font-weight: 500; margin-bottom: 3px; line-height: 1.35; }
+.award-desc { font-size: 12px; color: var(--ink2); font-weight: 300; line-height: 1.5; }
+
+/* EDUCATION */
+.edu-section { }
+.edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.edu-card { background: var(--bg); border: 1px solid #E5E3DB; border-radius: var(--radius); padding: 1.5rem; border-left: 3px solid var(--teal); }
+.edu-year { font-size: 11px; color: var(--teal); font-weight: 500; letter-spacing: 0.06em; margin-bottom: 4px; }
+.edu-degree { font-size: 14px; font-weight: 500; margin-bottom: 3px; line-height: 1.4; }
+.edu-spec { font-size: 13px; color: var(--ink2); font-weight: 300; }
+
+/* PHILOSOPHY */
+.phil-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: center; }
+.phil-quote { font-family: var(--serif); font-size: clamp(20px, 2.5vw, 30px); font-style: italic; color: var(--ink); line-height: 1.45; border-left: 3px solid var(--teal); padding-left: 1.5rem; font-weight: 400; }
+.phil-text p { font-size: 15px; color: var(--ink2); line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
+
+/* CONTACT */
+.contact-section { background: var(--ink); color: white; }
+.contact-section .section-eyebrow { color: #9FE1CB; }
+.contact-section .section-eyebrow::after { background: #9FE1CB; }
+.contact-section h2 { color: white; }
+.contact-section h2 em { color: #9FE1CB; }
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+.contact-info p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; }
+.contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-link { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; padding: 11px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); transition: border-color 0.2s, color 0.2s; }
+.contact-link:hover { border-color: #9FE1CB; color: #9FE1CB; }
+.availability-card { background: rgba(29,158,117,0.12); border: 1px solid rgba(29,158,117,0.25); border-radius: var(--radius); padding: 1.5rem; }
+.availability-title { font-size: 12px; color: #9FE1CB; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+.availability-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; font-weight: 300; }
+
+footer { background: #0d0d0c; color: rgba(255,255,255,0.3); text-align: center; padding: 1.5rem; font-size: 12px; }
+.expertise-section { background: #F9F8F3; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div>
+    <div class="nav-logo">Polina Dorozhkina</div>
+    <div class="nav-school">Russian Language Teacher · Portfolio</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">Russian Language Teacher · All Ages · 7 Countries</div>
+    <h1>Language is a bridge.<br><em>I help students cross it.</em></h1>
+    <p class="hero-desc">
+      Specialist in Russian as a Mother Tongue and Russian as a Foreign Language, with classroom experience in India, Vietnam, Colombia and across 7 countries. I am applying to join the HeadStart community in Phuket — where I can support Russian-speaking families and help students of all backgrounds discover the Russian language.
+    </p>
+    <div class="hero-badges">
+      <span class="badge badge-teal">Russian as Mother Tongue</span>
+      <span class="badge badge-teal">Russian as Foreign Language</span>
+      <span class="badge badge-teal">English B2</span>
+      <span class="badge badge-gold">MA Linguistics · 2026</span>
+      <span class="badge badge-gold">7 Countries · International Experience</span>
+    </div>
+    <div class="hero-cta">
+      <!-- ✏️ Replace # with path to your CV PDF, e.g. "cv.pdf" -->
+      <a href="cv_polina_dorozhkina.pdf" target="_blank" class="btn-ghost">↓ Download full CV (PDF)</a>
+	  <a href="#contact" class="btn-ghost">Get in touch</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <img src="me.jpg" style="width:260px;height:260px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.4);">
+    <div class="hero-visual-label">Russian Language · Linguistics · Culture</div>
+    <div class="hero-bg-word">Язык</div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div class="video-section">
+  <div class="video-inner">
+    <div class="video-label">Classroom in action — 1 minute</div>
+    <div class="video-wrapper">
+      <!--
+      ✏️ HOW TO ADD YOUR VIDEO:
+        Option A — local file (same folder):
+          <video controls preload="metadata" poster="video-thumb.jpg">
+            <source src="lesson.mp4" type="video/mp4">
+          </video>
+        Option B — YouTube embed:
+          Replace entire <div class="video-wrapper"> contents with:
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            frameborder="0" allowfullscreen style="display:block;"></iframe>
+        Then delete the .video-placeholder div below.
+      -->
+          <video controls preload="metadata" poster="video-thumb.jpg">
+            <source src="lesson.mp4" type="video/mp4">
+          </video>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <!-- ✏️ Update numbers to your own -->
+  <div class="stat"><div class="stat-num">5+</div><div class="stat-lbl">Years teaching</div></div>
+  <div class="stat"><div class="stat-num">7</div><div class="stat-lbl">Countries worked in</div></div>
+  <div class="stat"><div class="stat-num">20+</div><div class="stat-lbl">Nationalities taught</div></div>
+  <div class="stat"><div class="stat-num">5–72</div><div class="stat-lbl">Age groups</div></div>
+</div>
+
+<!-- WHY THIS SCHOOL -->
+<section class="why-section">
+  <div class="section-eyebrow">What I offer</div>
+  <h2>Built for <em>international classrooms</em></h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">❤️</span>
+      <div class="why-title">Asia is already home to me</div>
+      <div class="why-desc">I have taught Russian in India (2024, 2025) and Vietnam (2023) — working in Asian schools, adapting to multilingual classrooms, and thriving in the region. My dream is to work in Phuket.</div>
+    </div>
+	<div class="why-card">
+      <span class="why-icon">🌏</span>
+      <div class="why-title">Truly international experience</div>
+      <div class="why-desc">Seven countries, 20+ nationalities taught — multicultural classrooms are my normal. I understand what it means to be a child navigating school in a language that isn't your first.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">👨‍👩‍👧</span>
+      <div class="why-title">Heritage & home-language support</div>
+      <div class="why-desc">HeadStart's community includes Russian-speaking families. My dual RMT + RFL specialisation means I can support heritage speakers maintaining their home language and students learning Russian from scratch.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🔬</span>
+      <div class="why-title">Evidence-based practice</div>
+      <div class="why-desc">I ground every methodology choice in current research — matching HeadStart's commitment to rigorous, high-quality education under the Cambridge International curriculum.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🎲</span>
+      <div class="why-title">Passion for community & events</div>
+      <div class="why-desc">I have organised Russian Language Day events, summer camps, and cultural programmes. HeadStart's vibrant school life — from ECAs to International Day — is exactly the kind of community I love building.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise" class="expertise-section">
+  <div class="section-eyebrow">Expertise</div>
+  <h2>What I <em>specialise in</em></h2>
+  <div class="expertise-grid">
+    <div class="expertise-text">
+      <p>I believe that a child's native language is inseparable from their identity. I teach Russian at first-language level to heritage speakers — helping children stay connected to their families and culture, wherever they grow up.</p>
+      <p>I am equally experienced with students learning Russian as a foreign language, adapting methodology across age groups and proficiency levels — from playful early-years immersion to structured RFL certification exam preparation. This <strong>dual specialisation</strong> means I can serve the full range of learners in a Russian programme.</p>
+	  <p>I also bring an unexpected skill to the classroom: I play traditional Russian wooden spoons — and make sure every student leaves knowing how to as well. Available for cultural evenings upon request 😄</p>
+    </div>
+    <div>
+      <div class="section-eyebrow" style="margin-bottom:1.5rem;">Core competencies</div>
+      <div class="skills-list">
+        <div>
+          <div class="skill-header"><span class="skill-name">Russian — First Language</span><span class="skill-note">Native speaker</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div>
+          <div class="skill-header"><span class="skill-name">Russian as Foreign Language (RFL)</span><span class="skill-note">Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div>
+          <div class="skill-header"><span class="skill-name">Сultural event design</span><span class="skill-note">Strong · 7 countries</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div>
+          <div class="skill-header"><span class="skill-name">English</span><span class="skill-note">B2 · working language</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+        </div>
+        <div>
+          <div class="skill-header"><span class="skill-name">Hindi</span><span class="skill-note">A1 · acquired during teaching in India</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:18%; background: var(--gold);"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE-BASED -->
+<section id="experience" style="background:#FDFCF8;">
+  <div class="section-eyebrow">Pedagogy through science</div>
+  <h2>Evidence-based <em>teaching</em></h2>
+<div class="evidence-grid" style="align-items: start; margin-top: 0;">
+    <div class="evidence-text">
+      <p>I don't choose methods because they feel intuitive — I choose them because <strong>research supports them</strong>. As a Research Assistant at the Laboratory of Cognitive and Linguistic Studies and an M.A. candidate in Applied Linguistics, I read current studies and apply their findings directly to lesson design.</p>
+      <p>This matters especially for heritage and bilingual learners, where the research on language maintenance, identity, and acquisition is rich — and where poor methodology can quietly undermine a child's relationship with their native tongue.</p>
+      <p>I am actively exploring <strong>AI tools in language education</strong> — how they can personalise feedback, support independent practice, and extend learning beyond the classroom. And I contribute to the <strong>expert review of a bilingual children's textbook</strong>, bridging research and real curriculum materials.</p>
+    </div>
+    <div class="evidence-cards" style="align-self: start;">
+      <div class="evidence-card">
+        <div class="evidence-card-year">2024 — present</div>
+        <div class="evidence-card-title">Research Assistant — Cognitive & Linguistic Studies Lab</div>
+        <div class="evidence-card-desc">Pushkin State Russian Language Institute. Focus: bilingualism, RFL methodology, language didactics, heritage language maintenance.</div>
+      </div>
+      <div class="evidence-card">
+        <div class="evidence-card-year">2023 — present</div>
+        <div class="evidence-card-title">Linguist — Educational Metalexicon Project · Gramota.ru</div>
+        <div class="evidence-card-desc">Linguistic annotation and development of educational language resources used in Russian-language schools.</div>
+      </div>
+      <div class="evidence-card">
+        <div class="evidence-card-year">2025</div>
+        <div class="evidence-card-title">Skoltech — EdTech & AI in Education Conference</div>
+        <div class="evidence-card-desc">Participant. AI tools for personalised learning and automated feedback in language teaching.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section" id="story">
+  <div class="section-eyebrow">A story from the classroom</div>
+  <h2>Believing in <em>every student</em></h2>
+  <div class="story-inner">
+    <div class="story-pull">
+      "I never doubted he could do it. That belief turned out to matter more than anything."
+    </div>
+    <div class="story-text">
+      <p>
+        In Colombia, I was preparing students for official RFL certification exams.
+        One student — Gabriel — was, by every measure, below the threshold for A1.
+        My colleagues advised redirecting him to an ungraded sitting.
+      </p>
+      <p>
+        I understood their caution. But I saw something the numbers didn't capture.
+        So I proposed a middle ground: <strong>a dual registration</strong> — graded and ungraded —
+        so he'd walk away with something regardless.
+      </p>
+      <p>
+        Then I got to work. Extra sessions, free of charge. Materials tailored to his gaps.
+        Voice recordings back and forth to track his progress week by week.
+      </p>
+      <p>
+        When the results arrived, he had passed. <strong>Certificate in hand.</strong>
+        That moment crystallised something I now hold as a core belief:
+        a student's achievement is inseparable from their teacher's faith in them.
+      </p>
+      <div class="story-signoff">Gabriel, I am so proud of you!</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="expertise" class="expertise-section">
+  <div class="section-eyebrow">Experience</div>
+  <h2>Where I've <em>taught & worked</em></h2>
+  <div class="exp-layout">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-col"><div class="tl-dot"></div><div class="tl-seg"></div></div>
+        <div>
+          <div class="tl-year">2025 — Present</div>
+          <div class="tl-role">Teacher of Russian as a Foreign Language</div>
+          <div class="tl-org">Tolstoy Institute, Bogotá, Colombia</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-col"><div class="tl-dot"></div><div class="tl-seg"></div></div>
+        <div>
+          <div class="tl-year">2025</div>
+          <div class="tl-role">Lecturer & Workshop Leader</div>
+          <div class="tl-org">Knowledge Centre "Mashuk", Russia</div>
+          <div class="tl-detail">Modern RFL methods & bilingual reading strategies · Educators from 20+ countries</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-col"><div class="tl-dot"></div><div class="tl-seg"></div></div>
+        <div>
+          <div class="tl-year">2024 — Present</div>
+          <div class="tl-role">Research Assistant — Linguistics & Language Teaching</div>
+          <div class="tl-org">Laboratory of Cognitive and Linguistic Studies, Pushkin Institute</div>
+          <div class="tl-detail">Bilingualism · RFL methodology · Language didactics</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-col"><div class="tl-dot"></div><div class="tl-seg"></div></div>
+        <div>
+          <div class="tl-year">2023 — Present</div>
+          <div class="tl-role">Linguist — Educational Language Resources</div>
+          <div class="tl-org">Gramota.ru · Educational Project</div>
+          <div class="tl-detail">Educational terminology</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-col"><div class="tl-dot"></div><div class="tl-seg"></div></div>
+        <div>
+          <div class="tl-year">2021 — Present</div>
+          <div class="tl-role">Participant — “Ambassadors of the Russian Language in the World”</div>
+          <div class="tl-org">International Programme</div>
+          <div class="tl-detail">RMT & RFL teaching · Schools, universities, bilingual summer camps · 7 countries</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-col"><div class="tl-dot"></div></div>
+        <div>
+          <div class="tl-year">Ongoing</div>
+          <div class="tl-role">Organiser — "Russian Language Day" events & game-based workshops</div>
+          <div class="tl-org">Various institutions, international settings</div>
+          <div class="tl-detail">Festive language events, interactive game-based lessons, bilingual summer camp sessions</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column: photo + intl card -->
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+      <!-- Photo placeholder 1 (in Experience section) -->
+      <div>
+        <img src="afterclasses.jpg" style="width:520px;border-radius:6px;object-fit:contain;">
+        <!-- ✏️ Update caption -->
+        <div class="photo-caption">After the lesson · Vinh, Vietnam · 2023</div>
+      </div>
+
+      <div class="intl-card">
+        <div class="intl-card-title">Countries where I've taught Russian</div>
+        <div class="country-grid">
+          <!-- ✏️ Replace each Country X with real names — there should be 7 -->
+          <span class="country-tag">India</span>
+		  <span class="country-tag">Colombia</span>
+		  <span class="country-tag">Turkey</span>
+		  <span class="country-tag">Vietnam</span>
+		  <span class="country-tag">Kyrgyzstan</span>
+		  <span class="country-tag">Belarus</span>
+		  <span class="country-tag">Russia</span>
+        </div>
+        <div class="intl-note">
+          Teaching expeditions to schools, universities, and bilingual summer camps since 2021 —
+          working with children from Russian-speaking diaspora communities across multiple regions.
+        </div>
+      </div>
+
+      <div style="background:var(--teal-lt);border:1px solid #9FE1CB;border-radius:var(--radius);padding:1.25rem 1.5rem;">
+        <div style="font-size:11px;color:var(--teal-dk);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Relevant for international schools</div>
+        <p style="font-size:13px;color:var(--teal-dk);font-weight:300;line-height:1.65;">
+          International schools with large Russian-speaking communities benefit from a teacher
+          who can support <em>both</em> heritage speakers and students learning Russian from scratch —
+          my dual specialisation covers exactly this range.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards-section" id="awards">
+  <div class="section-eyebrow">Recognition</div>
+  <h2>Awards & <em>achievements</em></h2>
+  <div class="awards-grid">
+    <div class="award-card">
+      <div class="award-year">2025</div>
+      <div>
+        <div class="award-name">Finalist — "Masters of the Russian Language"</div>
+        <div class="award-desc">National competition for RFL teachers, Russia</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-year">2025</div>
+      <div>
+        <!-- ✏️ Replace with scholarship name -->
+        <div class="award-name">Recipient — Potanin Foundation Scholarship</div>
+        <div class="award-desc">National competition for MA students</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-year">2025</div>
+      <div>
+        <div class="award-name">Lecturer — Knowledge Centre, educators from 20+ countries</div>
+        <div class="award-desc">Workshops on modern RFL methods for an international audience of language teachers.</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-year">2024</div>
+      <div>
+        <div class="award-name">Organiser — All-Russian Project "Istoki.School"</div>
+        <div class="award-desc">Educational and cultural outreach project for Russian-language schoolchildren.</div>
+      </div>
+    </div>
+	<div class="award-card">
+      <div class="award-year">2023</div>
+      <div>
+        <div class="award-name">Ноые — International Games of Young Compatriots</div>
+        <div class="award-desc">Moderator· Track: Popularisation of the Russian Language.</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-year">2022</div>
+      <div>
+        <div class="award-name">Host — "Russian Language Day", Red Square, Moscow</div>
+        <div class="award-desc">Organization of events dedicated to the Russian language and culture.</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-year">2022</div>
+      <div>
+        <div class="award-name">Programme representative — International Youth Forums</div>
+        <div class="award-desc">Russia–China Economic Forum · Russia–Azerbaijan Youth Forum · Russia–Belarus Youth Forum</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo placeholders in Awards section -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2rem;">
+<div style="text-align:center;">
+      <img src="india.jpg" style="width:380px;height:271px;border-radius:6px;object-fit:cover;">
+      <div class="photo-caption">Smiles are the best reward · Guwahati, India · 2024</div>
+    </div>
+    <div>
+      <img src="mystudents.jpg" style="width:380px;height:271px;border-radius:6px;object-fit:cover;">
+      <!-- ✏️ Update caption -->
+      <div class="photo-caption">The first steps · Hanoi, Vietnam · 2023</div>
+    </div>
+    <div>
+      <img src="kgz.jpg" style="width:380px;height:271px;border-radius:6px;object-fit:cover;">
+      <!-- ✏️ Update caption -->
+      <div class="photo-caption">Summer camp session · Cholpon-Ata, Kyrgyzstan · 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:#FDFCF8;">
+  <div class="section-eyebrow">Education</div>
+  <h2>Academic <em>background</em></h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-year">2024–2026</div>
+      <div class="edu-degree">M.A. — Fundamental & Applied Linguistics</div>
+      <div class="edu-spec">Faculty of Humanities, HSE University, Russia</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2026</div>
+      <div class="edu-degree">Professional Retraining — Methodology of Teaching Russian as a Non-Native & Foreign Language</div>
+      <div class="edu-spec">Pushkin Institute</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2025</div>
+      <div class="edu-degree">Advanced Training — Teaching Russian as a Foreign Language</div>
+      <div class="edu-spec">Moscow State Linguistic University</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2024</div>
+      <div class="edu-degree">B.A. — Applied Philology</div>
+      <div class="edu-spec">Faculty of Philology, Pushkin Institute, Russia</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2023</div>
+      <div class="edu-degree">Advanced Training — Corpus Linguistics</div>
+      <div class="edu-spec">Pushkin Institute</div>
+    </div>
+    <div class="edu-card" style="border-left-color:var(--gold);">
+      <div class="edu-year" style="color:var(--gold);">Additional programmes</div>
+      <div class="edu-degree">RFL Methodology · Practical Approaches to RFL in Limited & Foreign-Language Environments</div>
+      <div class="edu-spec">Pushkin Institute</div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy" style="background:#F3F2ED;">
+  <div class="section-eyebrow">Teaching philosophy</div>
+  <h2>How I <em>teach</em></h2>
+  <div class="phil-layout">
+    <div class="phil-quote">
+      "A child who keeps their mother tongue keeps a part of who they are."
+    </div>
+    <div class="phil-text">
+      <p>For children from Russian-speaking families, language is memory, identity, and connection to home. My lessons honour this — combining rigorous linguistic work with literature, storytelling, and play.</p>
+	  <p>With foreign-language learners, I use communicative, task-based, and game-based approaches that make Russian feel alive — a tool to connect with people, not a set of rules to memorise.</p>
+	  <p>Across all groups, I adapt constantly — to age, proficiency, and context. And I never stop learning myself.</p>
+    </div>
+  </div>
+
+  <!-- Photo placeholder in Philosophy section -->
+<div style="margin-top:3rem;display:flex;flex-direction:column;align-items:center;">
+    <div style="width:40%;">
+      <img src="perf.jpg" style="width:100%;border-radius:6px;object-fit:contain;">
+      <div class="photo-caption">Playing on wooden spoons for the Russian Language Day · Hanoi, Vietnam · 2023</div>
+    </div>
+  </div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-eyebrow">Contact</div>
+  <h2>Let's <em>connect</em></h2>
+  <div class="contact-layout">
+    <div>
+      <div class="contact-info">
+        <p>
+          I am available to start from <strong style="color:white;">July 2026</strong> and open to
+          international school positions. I welcome any questions about my background,
+          teaching approach, or availability.
+        </p>
+      </div>
+      <div class="contact-links" style="position:relative;z-index:10;">
+        <!-- ✏️ Replace with your real email -->
+        <a href="mailto:polina_dorozhkina02@mail.ru" class="contact-link" onclick="navigator.clipboard.writeText('polina_dorozhkina02@mail.ru');this.textContent='✓ Copied!';setTimeout(()=>this.textContent='✉ polina_dorozhkina02@mail.ru',2000)">✉ polina_dorozhkina02@mail.ru</a>
+	    <a href="https://wa.me/79026969729" class="contact-link" target="_blank">💬 WhatsApp</a>
+        <!-- ✏️ Replace # with path to your CV PDF -->
+        <a href="cv_polina_dorozhkina.pdf" target="_blank" class="btn-ghost">↓ Download full CV (PDF)</a>
+      </div>
+    </div>
+    <div class="availability-card">
+      <div class="availability-title">Availability & preferences</div>
+      <div class="availability-text">
+        Available from <strong style="color:#9FE1CB;">July 2026</strong><br>
+        Open to international school positions<br>
+        English level: B2 (Upper-Intermediate)<br>
+        Experience across 7 countries
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <!-- ✏️ Replace Name Surname -->
+  <p>© 2026 Polina Dorozhkina · Russian Language Teacher · Portfolio</p>
+</footer>
+
+</body>
+</html>
